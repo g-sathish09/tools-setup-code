@@ -19,10 +19,10 @@ variable "tools" {
 }
 
 variable "zone_id" {
-  default = "Z02249652EM5BAO495DZ1"
+  default = "Z05536047CUMASJ01KSK"
 }
 
 variable "domain_name" {
-  default = "rdevopsb81.online"
+  default = "harsharoboticshop.online"
 }
 
