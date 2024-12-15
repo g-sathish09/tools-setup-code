@@ -8,12 +8,12 @@ variable "tools" {
       policy_list = []
     }
 
-    github-runner = {
-      port          = 80 # Just a dummy port
-      volume_size   = 50
-      instance_type = "t3.small"
-      policy_list = ["*"]
-    }
+    # github-runner = {
+    #   port          = 80 # Just a dummy port
+    #   volume_size   = 50
+    #   instance_type = "t3.small"
+    #   policy_list = ["*"]
+    # }
 
   }
 }
