@@ -16,10 +16,7 @@ variable "tools" {
     }
 
     elasticsearch = {
-      port          = {
-        elasticsearch = 9200
-        nginx         = 80
-      }
+      port          = 80
       volume_size   = 50
       instance_type = "r6idn.large"
       policy_list = []
