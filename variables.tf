@@ -21,6 +21,7 @@ variable "tools" {
       port          = {
         elasticsearch = 9200
         nginx         = 80
+        logstash      = 5044
       }
       volume_size   = 100
       instance_type = "r6idn.large"
