@@ -2,11 +2,15 @@
   ansible.builtin.shell: set-prompt {{ tool_name }}
 
 - name: Copy Elastic repo file
+  tags:
+    - elk
   ansible.builtin.copy:
     src: elastic.repo
     dest: /etc/yum.repos.d/elastic.repo
 
 - name: Install ELK
+  tags:
+    - elk
   ansible.builtin.dnf:
     name:
       - elasticsearch
@@ -16,17 +20,24 @@
     state: installed
 
 - name: Copy logstash
+  tags:
+    - elk
+    - logstash
   ansible.builtin.template:
     src: logstash.conf
     dest: /etc/logstash/conf.d/logstash.conf
 
 
-- name: Copy nginx config fiel
+- name: Copy nginx config file
+  tags:
+    - elk
   ansible.builtin.copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 
 - name: Start ELK
+  tags:
+    - elk
   ansible.builtin.systemd_service:
     name: "{{ item }}"
     state: restarted
@@ -36,6 +47,17 @@
     - kibana
     - logstash
     - nginx
+
+- name: Restart Logstash
+  tags:
+    - logstash
+  ansible.builtin.systemd_service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  loop:
+    - logstash
+
 
 
 
