@@ -5,4 +5,4 @@ lv_input:
   - { lv: rootVol,    size: 16 }
   - { lv: swapVol,    size: 2 }
   - { lv: varTmpVol,  size: 2 }
-  - { lv: varVol,     size: 10 }
+  - { lv: varVol,     size: 25 }

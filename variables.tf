@@ -12,7 +12,7 @@ variable "tools" {
 
     github-runner = {
       port          = {}
-      volume_size   = 50
+      volume_size   = 80
       instance_type = "t3.small"
       policy_list = ["*"]
     }
@@ -26,6 +26,15 @@ variable "tools" {
       volume_size   = 100
       instance_type = "r6idn.large"
       policy_list = []
+    }
+
+    sonarqube = {
+      port          = {
+        sonarqube  = 9000
+      }
+      volume_size   = 20
+      instance_type = "t3.large"
+      policy_list = ["*"]
     }
 
   }

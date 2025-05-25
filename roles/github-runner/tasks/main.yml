@@ -96,5 +96,23 @@
     dest: /bin/argocd
     mode: '0755'
 
+- name: Sonar Directory
+  ansible.builtin.file:
+    path: /sonar-scanner
+    state: directory
+    owner: github-runner
+    group: github-runner
 
+- name: Download and extract sonar-scanner
+  ansible.builtin.unarchive:
+    remote_src: true
+    src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477-linux-x64.zip
+    dest: /sonar-scanner
+    owner: github-runner
+    group: github-runner
+
+- name: Install Maven
+  ansible.builtin.dnf:
+    name: maven
+    state: installed
 
