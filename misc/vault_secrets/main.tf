@@ -165,7 +165,7 @@ resource "vault_generic_secret" "sonarqube" {
 
   data_json = <<EOT
 {
-  "username" : "admin ",
+  "username" : "admin",
   "password" : "admin123"
 }
 EOT
